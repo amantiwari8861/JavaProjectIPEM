@@ -1,1 +1,6 @@
 *.class
+/TestGUI/nbproject/private/
+/TestGUI/build/
+/JavaApplication8/nbproject/private/
+/DaoDesignPattern2/nbproject/private/
+/DaoDesignPattern2/build/
