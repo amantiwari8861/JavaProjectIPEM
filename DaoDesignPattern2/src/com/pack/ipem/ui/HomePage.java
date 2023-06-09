@@ -2,6 +2,7 @@ package com.pack.ipem.ui;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class HomePage extends javax.swing.JFrame {
@@ -12,15 +13,32 @@ public class HomePage extends javax.swing.JFrame {
 
     }
 
-    public HomePage(int id) {
+    public HomePage(int id) 
+    {
+        JFrame frame=this;
         initComponents();
+//            Thread.currentThread().sleep(3000);
 //         new JOptionPane().showMessageDialog(this,"the id is "+id);
+        Thread t = new Thread(
+                new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    for (int i = 0; i <= 100; i++) {
+                        Thread.currentThread().sleep(100);
+                        per.setText(i + "%");
+                        progress.setValue(i);
+                    }
+                    new AllUsers().setVisible(true);
+                    frame.dispose();
 
-        for (int i = 0; i <= 100; i++) {
-            per.setText(i + "%");
-            progress.setValue(i);
+                } catch (InterruptedException ex) {
+                }
+
+            }
         }
-        this.dispose();
+        );
+        t.start();
     }
 
     @SuppressWarnings("unchecked")
@@ -44,7 +62,6 @@ public class HomePage extends javax.swing.JFrame {
 
         progress.setBackground(new java.awt.Color(255, 255, 255));
         progress.setForeground(new java.awt.Color(102, 255, 0));
-        progress.setValue(5);
 
         per.setForeground(new java.awt.Color(102, 255, 51));
 

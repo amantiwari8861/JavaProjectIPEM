@@ -17,20 +17,6 @@ public class MainFile {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Thread t=new Thread(new Runnable() {
-            @Override
-            public void run() {
-         HomePage home=new HomePage(0);
-         home.setVisible(true);
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException ex) {
-                    
-                }
-         home.dispose();
-         new AllUsers().setVisible(true);
-            }
-        });
-        t.start();
+         new HomePage(0).setVisible(true);
     }
 }
